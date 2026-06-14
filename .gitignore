@@ -11,3 +11,4 @@ coverage
 build
 .codex/skills
 .claude/skills
+.DS_Store
