@@ -1,0 +1,96 @@
+BUYER TIPS INFORMATIC EXAMPLES
+==============================
+
+Based on the Infographic Template Updater skill and the provided buyer tips data, here are several infographic samples you can generate:
+
+1. HORIZONTAL LIST INFOGRAPHIC (list-row-simple-horizontal-arrow)
+--------------------------------------------------------------
+infographic list-row-simple-horizontal-arrow
+data
+  lists
+    - label ASK FOR MORE PHOTOS
+      desc Request specific angles before committing. Sellers expect it.
+    - label REQUEST DOCUMENTATION
+      desc Copy of invoice accompanied by valid photo ID proof of the seller.
+    - label MEET IN PUBLIC SPOTS
+      desc Always conduct your first physical equipment inspection in a secure, neutral location.
+    - label TEST BEFORE YOU PAY
+      desc Mount the lens or check the camera shutter count and sensor on-site.
+    - label INSPECT OPTICS AND GEOMETRY
+      desc Shine a light through elements to check for fungus, dust, or structural damage.
+
+2. GRID LAYOUT INFOGRAPHIC (list-grid-simple)
+---------------------------------------------
+infographic list-grid-simple
+data
+  lists
+    - label ASK FOR MORE PHOTOS
+      desc Request specific angles before committing. Sellers expect it.
+    - label REQUEST DOCUMENTATION
+      desc Copy of invoice accompanied by valid photo ID proof of the seller.
+    - label MEET IN PUBLIC SPOTS
+      desc Always conduct your first physical equipment inspection in a secure, neutral location.
+    - label TEST BEFORE YOU PAY
+      desc Mount the lens or check the camera shutter count and sensor on-site.
+    - label INSPECT OPTICS AND GEOMETRY
+      desc Shine a light through elements to check for fungus, dust, or structural damage.
+
+3. PYRAMID LAYOUT INFOGRAPHIC (list-pyramid-badge-card)
+------------------------------------------------------
+infographic list-pyramid-badge-card
+data
+  lists
+    - label INSPECT OPTICS AND GEOMETRY
+      desc Shine a light through elements to check for fungus, dust, or structural damage.
+    - label TEST BEFORE YOU PAY
+      desc Mount the lens or check the camera shutter count and sensor on-site.
+    - label MEET IN PUBLIC SPOTS
+      desc Always conduct your first physical equipment inspection in a secure, neutral location.
+    - label REQUEST DOCUMENTATION
+      desc Copy of invoice accompanied by valid photo ID proof of the seller.
+    - label ASK FOR MORE PHOTOS
+      desc Request specific angles before committing. Sellers expect it.
+
+4. COLUMN LAYOUT INFOGRAPHIC (list-column-done-list)
+---------------------------------------------------
+infographic list-column-done-list
+data
+  lists
+    - label ASK FOR MORE PHOTOS
+      desc Request specific angles before committing. Sellers expect it.
+    - label REQUEST DOCUMENTATION
+      desc Copy of invoice accompanied by valid photo ID proof of the seller.
+    - label MEET IN PUBLIC SPOTS
+      desc Always conduct your first physical equipment inspection in a secure, neutral location.
+    - label TEST BEFORE YOU PAY
+      desc Mount the lens or check the camera shutter count and sensor on-site.
+    - label INSPECT OPTICS AND GEOMETRY
+      desc Shine a light through elements to check for fungus, dust, or structural damage.
+
+To generate these infographics programmatically:
+
+```typescript
+import { Infographic } from '@antv/infographic';
+
+// Example for horizontal list
+const infographic = new Infographic({
+  container: '#container',
+  width: '1080',    // Instagram Feed portrait (4:5 aspect ratio)
+  height: '1350',
+  editable: false,
+});
+
+// Render the infographic
+infographic.render(`[INSERT ONE OF THE ABOVE TEMPLATES HERE]`);
+
+// For styling to match the specifications:
+// - Background: #1A1A1A (dark charcoal)
+// - Accent color: #E63946 (PNZ red) for left borders
+// - Typography: Barlow Semi Condensed Bold for headlines
+// - Warm gold dividers between sections
+// - Icons: Simple white outline, 20px size at end of pointers
+```
+
+Note: For the exact visual specifications mentioned in your prompt (Instagram Feed format, specific colors, typography, etc.), 
+you would need to customize the theme and potentially create a custom template, as the built-in templates 
+may not match all those specific requirements exactly.

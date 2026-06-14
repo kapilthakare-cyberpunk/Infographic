@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sony Cinema Line Camera Comparison - FX6 vs FX2 vs FX3 vs FX30</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    #container {
+      width: 100%;
+      height: 100%;
+      min-height: 100vh;
+    }
+    #export-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      padding: 12px 24px;
+      background: #000;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #export-btn:hover {
+      background: #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  <button id="export-btn" onclick="exportSVG()">Export SVG</button>
+
+  <script src="https://unpkg.com/@antv/infographic@latest/dist/infographic.min.js"></script>
+  <script>
+    const syntax = `infographic compare-quadrant-quarter-simple-card
+data
+  title Sony Cinema Line Camera Comparison
+  desc FX6 vs FX2 vs FX3 vs FX30 - Key Specifications
+  compares
+    - label Sony FX6
+      icon camera pro
+      children
+        - label Sensor
+          desc Full-frame 35.6x23.8mm
+        - label Resolution
+          desc 10.2 MP
+        - label Max Frame Rate
+          desc 4K 120p / FHD 240p
+        - label Dynamic Range
+          desc 15+ stops S-Log3
+        - label Autofocus
+          desc Fast Hybrid + Eye AF
+        - label Codecs
+          desc XAVC-I, XAVC-L (4:2:2 10-bit)
+        - label ND Filters
+          desc No (menu control)
+        - label Price
+          desc ~$5,999
+        - label Best For
+          desc Documentary, Broadcast
+
+    - label Sony FX2
+      icon camera pro
+      children
+        - label Sensor
+          desc Full-frame 35.9x23.9mm
+        - label Resolution
+          desc 33.0 MP (Highest)
+        - label Max Frame Rate
+          desc 4K 120p / FHD 120p
+        - label Dynamic Range
+          desc 15+ stops S-Log3
+        - label Autofocus
+          desc Fast Hybrid + Eye AF
+        - label Codecs
+          desc XAVC S-I, XAVC S, HS
+        - label ND Filters
+          desc Variable ND (1/4-1/128)
+        - label Price
+          desc ~$2,499
+        - label Best For
+          desc Hybrid shooters
+
+    - label Sony FX3
+      icon camera pro
+      children
+        - label Sensor
+          desc Full-frame 35.6x23.8mm
+        - label Resolution
+          desc 10.3 MP
+        - label Max Frame Rate
+          desc 4K 120p / FHD 240p
+        - label Dynamic Range
+          desc 15+ stops S-Log3
+        - label Autofocus
+          desc Fast Hybrid + Eye AF
+        - label Codecs
+          desc XAVC S-I, XAVC S, HS
+        - label ND Filters
+          desc No
+        - label Price
+          desc ~$3,899
+        - label Best For
+          desc Run-and-gun, Gimbal
+
+    - label Sony FX30
+      icon camera pro
+      children
+        - label Sensor
+          desc APS-C 23.3x15.5mm
+        - label Resolution
+          desc 20.1 MP
+        - label Max Frame Rate
+          desc 4K 120p / FHD 240p
+        - label Dynamic Range
+          desc 14+ stops S-Log3
+        - label Autofocus
+          desc Fast Hybrid + Eye AF
+        - label Codecs
+          desc XAVC S-I, XAVC S, HS
+        - label ND Filters
+          desc Electronic
+        - label Price
+          desc ~$1,799 (Most affordable)
+        - label Best For
+          desc Content creation
+theme
+  palette #000000 #ff6600 #757575 #cccccc`;
+
+    const infographic = new AntVInfographic.Infographic({
+      container: '#container',
+      width: '100%',
+      height: '100%',
+    });
+
+    infographic.render(syntax);
+
+    document.fonts?.ready.then(() => {
+      infographic.render(syntax);
+    }).catch((error) => console.error('Error waiting for fonts to load:', error));
+
+    async function exportSVG() {
+      try {
+        const svgDataUrl = await infographic.toDataURL({ type: 'svg' });
+        const link = document.createElement('a');
+        link.href = svgDataUrl;
+        link.download = 'sony-camera-comparison.svg';
+        link.click();
+      } catch (error) {
+        console.error('Error exporting SVG:', error);
+        alert('Error exporting. Check console for details.');
+      }
+    }
+  </script>
+</body>
+</html>
